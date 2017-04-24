@@ -2,7 +2,7 @@
 
 This is the sandtray category game as used in the DREAM project (http://www.dream2020.eu/). Please see the license file if you wish to use the code. Below is a guide for configuring and building the software. The code has been extensively tested on Windows; the Linux build has been neglected since early development so it may need tweaks to compile.
 
-The aim of the game is to put images into the correct category. The game is designed to be used with a robot; communication with a robot is handled via socket connections (urbi send and receive classes; naming due to legacy use of urbi on the robot side, but it is agnostic).
+The aim of the game is to put images into the correct category or to select a favourite from a set of choices. The game is designed to be used with a robot; communication with a robot is handled via socket connections (urbi send and receive classes; naming due to legacy use of urbi on the robot side, but it is agnostic).
 
 Please note that this work was done for a European project and is no longer under development by myself. I do not intend to provide a detailed guide to the code, but if you do wish to use the code and anything is unclear then get in touch and I'll see what I can do :)
 
@@ -50,7 +50,7 @@ REQUIRED: Qt SDK 4.8.5 (recommended Qt Creator 3.0.1)
 
 7. To get the most out of the game with a robot (and make it work in some cases), image libraries should be formatted as follows:
    - Top level folder - as specified in settings.ini (default is 'libraries' one directory above the executable)
-     - Libraries: in separate folders, named, e.g. lib1_food, lib2_aliens, lib3_prime_numbers- they will be shown in alphabetical order; properties can be sent to the robot and are split by underscores, starting at the second position
+     - Libraries: in separate folders, named, e.g. lib1_mode0_food, lib2_mode1_aliens, lib3_prime_numbers - they will be shown in alphabetical order; properties can be sent to the robot and are split by underscores, starting at the second position. The mode0 and mode1 tags are used to switch the game format between sorting (mode0) and favourite selection (mode1).
    - Fixed elements: naming convention SENXFIL_desc, where X is a number representing the order and 'desc' describes the image.
    - Categories: naming convention SENXBLA_Y_blank, where X is a number representing the order, and Y is a letter representing the unique id for that category.
    - Images: naming convention X123_first_second (e.g. A001_yellow_banana, B002_red_apple), where X is the category unique ID and 123 is a unique identifier for the image (this is unused by the game, so isn't strictly necessary, but keeps from naming clashes)
